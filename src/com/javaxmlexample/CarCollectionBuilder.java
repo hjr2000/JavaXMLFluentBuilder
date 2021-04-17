@@ -47,14 +47,14 @@ public class CarCollectionBuilder {
 
         // carName element
         Element carName = doc.createElement("carname");
-        carName.appendChild(doc.createTextNode("Ferrari 101"));
+        carName.appendChild(doc.createTextNode(carCollection.getSupercarName()));
         supercar.appendChild(carName);
 
         Element carName1 = doc.createElement("carname");
         Attr attrType1 = doc.createAttribute("type");
-        attrType1.setValue("sports");
+        attrType1.setValue(carCollection.getSupercarType());
         carName1.setAttributeNode(attrType1);
-        carName1.appendChild(doc.createTextNode("Ferrari 203"));
+        carName1.appendChild(doc.createTextNode(carCollection.getSupercarSportscarName()));
         supercar.appendChild(carName1);
 
         return doc;
