@@ -14,30 +14,28 @@ import java.io.StringWriter;
 
 public class Main {
 
+    // todo - put pictures in the ReadMe
+    // todo - change the schema a bit maybe, and introduce further functionality
+    // todo - create Ferrari and Maclaren templates
+
     public static void main(String[] args) throws ParserConfigurationException, TransformerException
     {
-	    // Source material:
-        //  https://www.tutorialspoint.com/java_xml/java_dom_create_document.htm
-        //  https://en.wikipedia.org/wiki/Builder_pattern
-        //  https://howtodoinjava.com/design-patterns/creational/builder-pattern-in-java/
-
         boolean exportToFile = false;
 
-        // todo - Set up the car collection prior to creating the CarCollectionBuilder below? Otherwise you get duplication
-        // todo - which isn't a good look??? or not?!
+        // Create our source car collection, which may be one of a number of templates.
+        CarCollection carCollection = new CarCollection();
 
-        Document carCollectionDoc = CarCollectionBuilder
-                .create()
-                //.setSupercarManufacturer("Maserati")
-                .build();
+        carCollection
+                .setSupercarName("Ferrari 999")
+                .setSupercarManufacturer("Maserati");
 
-        if (exportToFile){
-            exportToFile(carCollectionDoc);
-        }
+        Document carCollectionDoc = CarCollectionDocBuilder.build(carCollection);
+
+        // Export our car collection XML to a file if required
+        if (exportToFile) exportToFile(carCollectionDoc);
 
         // Write our XML to the console so we can see what's going on
         writeXMLDocumentToConsole(carCollectionDoc);
-
     }
 
     // todo - create an XML utilities folder and this and the writeXMLtoconsole method in it

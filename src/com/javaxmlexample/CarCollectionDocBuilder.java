@@ -8,25 +8,9 @@ import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
 import javax.xml.parsers.ParserConfigurationException;
 
-public class CarCollectionBuilder {
+public class CarCollectionDocBuilder {
 
-    protected CarCollection carCollection;
-
-    // Constructor
-    protected CarCollectionBuilder(CarCollection carCollection) {
-        this.carCollection = carCollection;
-    }
-
-    public static CarCollectionBuilder create(){
-        return new CarCollectionBuilder(new CarCollection());
-    }
-
-    public CarCollectionBuilder setSupercarManufacturer(String brand){
-        carCollection.setSupercarManufacturer(brand);
-        return this;
-    }
-
-    public Document build() throws ParserConfigurationException
+    public static Document build(CarCollection carCollection) throws ParserConfigurationException
     {
         DocumentBuilderFactory dbFactory = DocumentBuilderFactory.newInstance();
         DocumentBuilder dBuilder = dbFactory.newDocumentBuilder();

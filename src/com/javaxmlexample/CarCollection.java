@@ -16,16 +16,18 @@ public class CarCollection {
         return supercarManufacturer;
     }
 
-    public void setSupercarManufacturer(String supercarManufacturer) {
+    public CarCollection setSupercarManufacturer(String supercarManufacturer) {
         this.supercarManufacturer = supercarManufacturer;
+        return this;
     }
 
     public String getSupercarName() {
         return supercarName;
     }
 
-    public void setSupercarName(String supercarName) {
+    public CarCollection setSupercarName(String supercarName) {
         this.supercarName = supercarName;
+        return this;
     }
 
     public String getSupercarType() {
